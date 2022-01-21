@@ -45,5 +45,21 @@ class DateRangeFormatterTest < TestHelper
 
     assert_equal '14 January 2013, 10am - 08pm', date_range_str
   end
+
+  def test_same_months_using_weekday_formatter
+    date_beginning = Date.new(2013, 01, 14)
+    date_ending = Date.new(2013, 01, 16)
+    date_range_str = DateRangeFormatter.format(date_beginning, date_ending, :with_weekday)
+
+    assert_equal  'Monday–Wednesday, 14-16 January 2013', date_range_str
+  end
+
+  def test_same_years_using_weekday_formatter
+    date_beginning = Date.new(2013, 01, 14)
+    date_ending = Date.new(2013, 02, 15)
+    date_range_str = DateRangeFormatter.format(date_beginning, date_ending, :with_weekday)
+
+    assert_equal  'Monday, 14 January - Friday, 15 February 2013', date_range_str
+  end
 end
 

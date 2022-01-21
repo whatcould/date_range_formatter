@@ -18,3 +18,13 @@ en:
       same_months: "%{from_day}-%{until_day} %{month} %{year}"
       same_years: "%{from_day} %{from_month} - %{until_day} %{until_month} %{year}"
       different_components: "%{from_day} %{from_month} %{from_year} - %{until_day} %{until_month} %{until_year}"
+
+    with_weekday:
+      month: "%B"
+      year: "%Y"
+      weekday: "%A"
+      same_hours: "%{day} %{month} %{year}"
+      same_days: "%{weekday}, %{day} %{month} %{year}"
+      same_months: "%{from_weekday}–%{until_weekday}, %{from_day}-%{until_day} %{month} %{year}"
+      same_years: "%{from_weekday}, %{from_day} %{from_month} - %{until_weekday}, %{until_day} %{until_month} %{year}"
+      different_components: "%{from_weekday}, %{from_day} %{from_month} %{from_year} - %{until weekday}, %{until_day} %{until_month} %{until_year}"

@@ -59,6 +59,7 @@ module DateRangeFormatter
       {
           hour: formatted_hour(from_date),
           day: from_date.day,
+          weekday: formatted_weekday(from_date),
           month: formatted_month(from_date),
           year: formatted_year(from_date),
       }
@@ -68,6 +69,7 @@ module DateRangeFormatter
       {
           from_hour: formatted_hour(from_date),
           until_hour: formatted_hour(until_date),
+          weekday: formatted_weekday(from_date),
           day: from_date.day,
           month: formatted_month(from_date),
           year: formatted_year(from_date),
@@ -78,6 +80,8 @@ module DateRangeFormatter
       {
         from_day: from_date.day,
         until_day: until_date.day,
+        from_weekday: formatted_weekday(from_date),
+        until_weekday: formatted_weekday(until_date),
         month: formatted_month(from_date),
         year: formatted_year(from_date),
       }
@@ -87,6 +91,8 @@ module DateRangeFormatter
       {
         from_day: from_date.day,
         until_day: until_date.day,
+        from_weekday: formatted_weekday(from_date),
+        until_weekday: formatted_weekday(until_date),
         from_month: formatted_month(from_date),
         until_month: formatted_month(until_date),
         year: formatted_year(from_date),
@@ -97,6 +103,8 @@ module DateRangeFormatter
       {
         from_day: from_date.day,
         until_day: until_date.day,
+        from_weekday: formatted_weekday(from_date),
+        until_weekday: formatted_weekday(until_date),
         from_month: formatted_month(from_date),
         until_month: formatted_month(until_date),
         from_year: formatted_year(from_date),
@@ -106,6 +114,11 @@ module DateRangeFormatter
 
     def formatted_hour(date)
       format_str = I18n.t "hour", scope: ["date_range", format]
+      I18n.l date, format: format_str
+    end
+
+    def formatted_weekday(date)
+      format_str = I18n.t "weekday", scope: ["date_range", format]
       I18n.l date, format: format_str
     end
 
